@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews | Gourmet Haven</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar glass" style="position: sticky; top: 0; z-index: 1000;">
+        <a href="index.html" class="logo">Gourmet Haven</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="reviews.html" class="active">Reviews</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <div class="container section-padding">
+        <h1 class="text-center">Guest Experiences</h1>
+        <p class="text-center" style="margin-bottom: 2rem;">See what our customers are saying.</p>
+
+        <div class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="review-card card-3d">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"The truffle pasta was absolutely divine! Best Italian food I've had in years. The service was
+                    impeccable."</p>
+                <span class="author">- Sarah Mitchell</span>
+            </div>
+
+            <div class="review-card card-3d">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"A hidden gem! The ambience is so romantic and perfect for date nights. Highly recommend the steak."
+                </p>
+                <span class="author">- David Chen</span>
+            </div>
+
+            <div class="review-card card-3d">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"Great food and lovely decor. The staff were very attentive to our dietary needs."</p>
+                <span class="author">- Emily Ross</span>
+            </div>
+            <div class="review-card card-3d">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"Quick service and the digital menu is so convenient! Love the vibe here."</p>
+                <span class="author">- Michael B.</span>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <h3 style="margin-bottom: 20px;">Share Your Experience</h3>
+            <div class="review-card glass" style="text-align: left; padding: 30px; box-shadow: var(--shadow-3d);">
+                <form id="review-form">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Your Name</label>
+                        <input type="text" id="review-name" required
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit; background: rgba(255,255,255,0.8);">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Rating</label>
+                        <div class="stars-input" style="color: var(--color-gold); font-size: 1.5rem; cursor: pointer;">
+                            <i class="far fa-star" data-value="1"></i><i class="far fa-star" data-value="2"></i><i
+                                class="far fa-star" data-value="3"></i><i class="far fa-star" data-value="4"></i><i
+                                class="far fa-star" data-value="5"></i>
+                        </div>
+                        <input type="hidden" id="review-rating" value="0" required>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Your Review</label>
+                        <textarea id="review-text" required rows="4"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit; resize: vertical; background: rgba(255,255,255,0.8);"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

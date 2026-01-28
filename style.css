@@ -258,11 +258,13 @@ img {
 }
 
 .logo img {
-    height: 55px;
-    /* Slightly smaller for better balance */
+    height: 50px;
+    /* Explicit height */
+    max-height: 50px;
+    /* Fail-safe */
     width: auto;
+    /* Maintain aspect ratio */
     object-fit: contain;
-    /* Prevent squeezing in navbar */
 }
 
 .nav-links {

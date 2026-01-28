@@ -240,16 +240,20 @@ img {
 
 .logo {
     display: flex;
+    flex-direction: row;
+    /* Force row direction */
     align-items: center;
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+    white-space: nowrap;
+    /* Keep text on same line */
     gap: 12px;
-    /* Balanced spacing */
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-mocha);
     letter-spacing: 0.5px;
     text-decoration: none;
-    /* Ensure no underline */
     transition: opacity var(--transition-fast);
 }
 

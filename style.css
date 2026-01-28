@@ -239,10 +239,30 @@ img {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Balanced spacing */
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-mocha);
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    /* Ensure no underline */
+    transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo img {
+    height: 55px;
+    /* Slightly smaller for better balance */
+    width: auto;
+    object-fit: contain;
+    /* Prevent squeezing in navbar */
 }
 
 .nav-links {

@@ -195,4 +195,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Dynamic Favicon Fix (Square Aspect Ratio)
+    const setSquareFavicon = () => {
+        const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'shortcut icon';
+
+        const img = new Image();
+        // Ensure we load the logo correctly
+        img.src = 'images/logo.png';
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const size = Math.max(img.width, img.height);
+            canvas.width = size;
+            canvas.height = size;
+
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, size, size);
+            // Center the image
+            const x = (size - img.width) / 2;
+            const y = (size - img.height) / 2;
+            ctx.drawImage(img, x, y);
+
+            link.href = canvas.toDataURL();
+            document.head.appendChild(link);
+        };
+    };
+    // Run favicon fix
+    setSquareFavicon();
+
 });

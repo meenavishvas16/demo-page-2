@@ -4,144 +4,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | Gourmet Haven</title>
+    <title>Menu | Maharaja’s Table</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 
 <body>
+    <!-- Consistent Navbar -->
     <nav class="navbar">
-        <a href="index.html#home" class="logo">
-            <img src="images/logo.png" alt="Gourmet Haven Logo" height="50" style="height: 50px; width: auto;">
-            Gourmet Haven
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Maharaja’s Table Logo" height="50">Maharaja’s Table
         </a>
         <ul class="nav-links">
             <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
             <li><a href="menu.html" class="active">Menu</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
             <li><a href="index.html#reviews">Reviews</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#location">Location</a></li>
+            <li><a href="index.html#contact" class="btn-book">Book Table</a></li>
         </ul>
-        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <div class="container section-padding">
-        <h1 class="text-center">Our Menu</h1>
+        <h1 class="text-center">Royal Menu</h1>
+        <p class="text-center" style="max-width: 600px; margin: 0 auto 2rem auto;">Delicacies from the Land of Kings</p>
 
         <!-- Category Navigation -->
         <div class="category-nav">
             <button class="cat-btn active" data-category="all">All</button>
-            <button class="cat-btn" data-category="starters">Starters</button>
             <button class="cat-btn" data-category="mains">Main Course</button>
-            <button class="cat-btn" data-category="drinks">Drinks</button>
+            <button class="cat-btn" data-category="starters">Snacks</button>
             <button class="cat-btn" data-category="desserts">Desserts</button>
         </div>
 
         <!-- Menu Grid -->
         <div class="menu-grid" style="margin-top: 20px;">
-            <!-- Starters -->
-            <div class="menu-item card-3d" data-category="starters">
-                <img src="images/golden calamari.webp" alt="Golden Calamari" class="item-image">
+
+            <!-- Main Course -->
+            <div class="menu-item" data-category="mains">
+                <img src="images/Daal Bati Choorma.webp" alt="Dal Baati Churma" class="item-image">
                 <div class="item-details">
                     <div class="item-header">
-                        <h3><i class="fas fa-circle non-veg-icon"></i> Golden Calamari</h3>
-                        <span class="item-price">$18</span>
+                        <h3><i class="fas fa-circle veg-icon"></i> Dal Baati Churma</h3>
+                        <span class="item-price">₹450</span>
                     </div>
-                    <p class="item-desc">Crispy fried calamari with lemon aioli.</p>
-                </div>
-            </div>
-            <div class="menu-item card-3d" data-category="starters">
-                <img src="images/bruschetta.webp" alt="Bruschetta" class="item-image">
-                <div class="item-details">
-                    <div class="item-header">
-                        <h3><i class="fas fa-circle veg-icon"></i> Bruschetta</h3>
-                        <span class="item-price">$12</span>
-                    </div>
-                    <p class="item-desc">Toasted bread with tomatoes, basil, and balsamic glaze.</p>
+                    <p class="item-desc">The state signature. Lentils, baked wheat balls, and sweet crushed wheat.</p>
                 </div>
             </div>
 
-            <!-- Mains -->
-            <div class="menu-item card-3d" data-category="mains">
-                <img src="images/truffle cream pasta.webp" alt="Truffle Cream Pasta" class="item-image">
+            <div class="menu-item" data-category="mains">
+                <img src="images/Laal Mass.webp" alt="Laal Maas" class="item-image">
                 <div class="item-details">
                     <div class="item-header">
-                        <h3><i class="fas fa-circle veg-icon"></i> Truffle Cream Pasta</h3>
-                        <span class="item-price">$24</span>
+                        <h3><i class="fas fa-circle non-veg-icon"></i> Laal Maas</h3>
+                        <span class="item-price">₹650</span>
                     </div>
-                    <p class="item-desc">Handmade fettuccine with organic truffle cream sauce.</p>
-                </div>
-            </div>
-            <div class="menu-item card-3d" data-category="mains">
-                <img src="images/rosemary grilled steak.webp" alt="Rosemary Grilled Steak" class="item-image">
-                <div class="item-details">
-                    <div class="item-header">
-                        <h3><i class="fas fa-circle non-veg-icon"></i> Rosemary Grilled Steak</h3>
-                        <span class="item-price">$35</span>
-                    </div>
-                    <p class="item-desc">Prime cut beef grilled to perfection with herbs.</p>
-                </div>
-            </div>
-            <div class="menu-item card-3d" data-category="mains">
-                <img src="images/pan seared salmon.webp" alt="Pan Seared Salmon" class="item-image">
-                <div class="item-details">
-                    <div class="item-header">
-                        <h3><i class="fas fa-circle non-veg-icon"></i> Pan Seared Salmon</h3>
-                        <span class="item-price">$28</span>
-                    </div>
-                    <p class="item-desc">Atlantic salmon with asparagus and lemon butter.</p>
+                    <p class="item-desc">Fiery mutton curry prepared in a sauce of yogurt and hot spices.</p>
                 </div>
             </div>
 
-            <!-- Drinks -->
-            <div class="menu-item card-3d" data-category="drinks">
-                <img src="images/classic mojito.webp" alt="Classic Mojito" class="item-image">
+            <div class="menu-item" data-category="mains">
+                <img src="images/Gatte ka saag.webp" alt="Gatte ki Sabzi" class="item-image">
                 <div class="item-details">
                     <div class="item-header">
-                        <h3><i class="fas fa-circle veg-icon"></i> Classic Mojito</h3>
-                        <span class="item-price">$10</span>
+                        <h3><i class="fas fa-circle veg-icon"></i> Gatte ki Sabzi</h3>
+                        <span class="item-price">₹350</span>
                     </div>
-                    <p class="item-desc">Fresh mint, lime, soda, and white rum.</p>
+                    <p class="item-desc">Steamed gram flour dumplings cooked in a spicy curd gravy.</p>
                 </div>
             </div>
-            <div class="menu-item card-3d" data-category="drinks">
-                <img src="images/iced latte.webp" alt="Iced Latte" class="item-image">
+
+            <div class="menu-item" data-category="mains">
+                <img src="images/Sengar Saag.webp" alt="Sangri Ki Sabzi" class="item-image">
                 <div class="item-details">
                     <div class="item-header">
-                        <h3><i class="fas fa-circle veg-icon"></i> Iced Latte</h3>
-                        <span class="item-price">$6</span>
+                        <h3><i class="fas fa-circle veg-icon"></i> Sangri Ki Sabzi</h3>
+                        <span class="item-price">₹380</span>
                     </div>
-                    <p class="item-desc">Premium roasted coffee with chilled milk.</p>
+                    <p class="item-desc">Traditional desert beans cooked with spices and dried berries.</p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="mains">
+                <img src="images/Bajre ki Roti & Chutny.webp" alt="Bajre ki Roti" class="item-image">
+                <div class="item-details">
+                    <div class="item-header">
+                        <h3><i class="fas fa-circle veg-icon"></i> Bajre ki Roti</h3>
+                        <span class="item-price">₹120</span>
+                    </div>
+                    <p class="item-desc">Millet flatbread served with garlic chutney and jaggery.</p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="mains">
+                <img src="images/mohan mass.webp" alt="Mohan Maas" class="item-image">
+                <div class="item-details">
+                    <div class="item-header">
+                        <h3><i class="fas fa-circle non-veg-icon"></i> Mohan Maas</h3>
+                        <span class="item-price">₹700</span>
+                    </div>
+                    <p class="item-desc">A royal dish: Mutton cooked in milk and mild spices.</p>
+                </div>
+            </div>
+
+            <!-- Starters / Snacks -->
+            <div class="menu-item" data-category="starters">
+                <img src="images/Pyaaz Kachori.webp" alt="Pyaaz Kachori" class="item-image">
+                <div class="item-details">
+                    <div class="item-header">
+                        <h3><i class="fas fa-circle veg-icon"></i> Pyaaz Kachori</h3>
+                        <span class="item-price">₹80</span>
+                    </div>
+                    <p class="item-desc">Fried pastry filled with spicy onion stuffing.</p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="starters">
+                <img src="images/Mirchi Bada.webp" alt="Mirchi Bada" class="item-image">
+                <div class="item-details">
+                    <div class="item-header">
+                        <h3><i class="fas fa-circle veg-icon"></i> Mirchi Bada</h3>
+                        <span class="item-price">₹60</span>
+                    </div>
+                    <p class="item-desc">Spicy chili fritters stuffed with potato masala.</p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="starters">
+                <img src="images/mawa kachori.webp" alt="Mawa Kachori" class="item-image">
+                <div class="item-details">
+                    <div class="item-header">
+                        <h3><i class="fas fa-circle veg-icon"></i> Mawa Kachori</h3>
+                        <span class="item-price">₹150</span>
+                    </div>
+                    <p class="item-desc">Sweet pastry filled with aromatic mawa and nuts.</p>
                 </div>
             </div>
 
             <!-- Desserts -->
-            <div class="menu-item card-3d" data-category="desserts">
-                <img src="images/tiramisu.webp" alt="Tiramisu" class="item-image">
+            <div class="menu-item" data-category="desserts">
+                <img src="images/Ghevar.webp" alt="Ghevar" class="item-image">
                 <div class="item-details">
                     <div class="item-header">
-                        <h3><i class="fas fa-circle veg-icon"></i> Tiramisu</h3>
-                        <span class="item-price">$9</span>
+                        <h3><i class="fas fa-circle veg-icon"></i> Malai Ghevar</h3>
+                        <span class="item-price">₹300</span>
                     </div>
-                    <p class="item-desc">Classic Italian coffee-flavored dessert.</p>
+                    <p class="item-desc">Disc-shaped sweet cake made from flour and soaked in sugar syrup.</p>
                 </div>
             </div>
-            <div class="menu-item card-3d" data-category="desserts">
-                <img src="images/chocolate lava cake.webp" alt="Chocolate Lava Cake" class="item-image">
-                <div class="item-details">
-                    <div class="item-header">
-                        <h3><i class="fas fa-circle veg-icon"></i> Chocolate Lava Cake</h3>
-                        <span class="item-price">$11</span>
-                    </div>
-                    <p class="item-desc">Warm chocolate cake with a gooey center.</p>
-                </div>
-            </div>
+
         </div>
     </div>
 
     <!-- Floating Action Button -->
-    <a href="index.html#contact" class="fab-menu">Call Waiter</a>
+    <a href="https://wa.me/1234567890" target="_blank" class="fab-menu"><i class="fab fa-whatsapp"></i> Order</a>
 
     <script src="script.js"></script>
 </body>

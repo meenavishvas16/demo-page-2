@@ -282,33 +282,75 @@ img {
     background-color: var(--color-maroon);
 }
 
-/* Hero Section */
+/* Hero Section - Pro Update */
 .hero {
-    min-height: 85vh;
+    min-height: 90vh;
+    /* Pro Desktop Height */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Hero override: Text must be readable over image. 
-       Usually header text is dark charcoal, but on hero image (darkened), it should be light.
-       Let's keep hero text light for contrast with image. */
+    background: linear-gradient(rgba(62, 47, 36, 0.55), rgba(62, 47, 36, 0.55)), url('images/hero.png');
+    background-size: cover;
+    background-position: center;
     color: var(--color-sandstone-light);
     padding: 0 var(--spacing-sm);
-    box-shadow: inset 0 -50px 100px -20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    box-shadow: none;
+    /* Removed heavy shadow for cleaner look */
 }
 
-.hero h1 {
+/* Typography Rules for Hero */
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 600;
+    /* Semi-bold */
+    letter-spacing: 0.5px;
     color: var(--color-sandstone-light);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.hero p {
+.hero-subtitle {
+    font-family: var(--font-body);
     font-size: 1.3rem;
-    color: #f0f0f0;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    color: var(--color-sandstone);
+    /* Ivory/Beige */
+    max-width: 60%;
+    /* Pro constraint */
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Variants */
+.btn-primary {
+    background-color: var(--color-desert-brown);
+    color: #F9F3EA;
+}
+
+.btn-primary:hover {
+    background-color: #553b2d;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    /* or transparent with border */
+    border: 2px solid var(--color-rajput-pink);
+    color: var(--color-sandstone-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-rajput-pink);
+    color: var(--color-charcoal-brown);
+}
+
+.hero-btns {
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* About Section */
@@ -340,6 +382,86 @@ img {
     margin-top: 2rem;
 }
 
+/* Menu Filter Dropdown (Pro) */
+.menu-filter-container {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto 2rem auto;
+    font-family: var(--font-heading);
+    z-index: 100;
+    /* Ensure it stays above content */
+}
+
+.menu-filter-selected {
+    background-color: var(--color-sandstone-light);
+    border: 2px solid var(--color-antique-gold);
+    color: var(--color-charcoal-brown);
+    padding: 12px 20px;
+    border-radius: var(--radius-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+}
+
+.menu-filter-selected:hover {
+    background-color: #fff;
+    border-color: var(--color-desert-brown);
+}
+
+.menu-filter-options {
+    position: absolute;
+    top: 110%;
+    /* Slight gap */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-sandstone-light);
+    border: 1px solid var(--color-antique-gold);
+    border-radius: var(--radius-soft);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: none;
+    /* Hidden by default */
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeInDropdown 0.3s ease;
+}
+
+.menu-filter-options.show {
+    display: flex;
+}
+
+.filter-option {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    transition: background 0.2s;
+    color: var(--color-text-body);
+}
+
+.filter-option:last-child {
+    border-bottom: none;
+}
+
+.filter-option:hover {
+    background-color: var(--color-desert-brown);
+    color: var(--color-sandstone-light);
+}
+
+@keyframes fadeInDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .menu-item {
     background: var(--color-sandstone-light);
     /* Warm card bg */
@@ -364,6 +486,10 @@ img {
 .item-details {
     padding: 1.5rem;
     text-align: center;
+    background-color: var(--color-sandstone-light);
+    /* Fix transparency issue */
+    position: relative;
+    z-index: 2;
 }
 
 .item-header h3 {
@@ -579,56 +705,116 @@ footer i:hover {
 
 /* Mobile */
 @media (max-width: 768px) {
+
+    /* Layout & Spacing */
+    .section-padding {
+        padding: 3rem 1rem;
+        /* Reduced padding for mobile */
+    }
+
+    /* Grids to Single Column */
+    .menu-grid,
+    .gallery-grid,
+    .contact-wrapper,
+    .flex {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    /* Exceptions for flex rows that should stay rows */
+    .flex.gap-sm {
+        gap: 1rem;
+    }
+
+    /* Nav Menu Mobile */
     .nav-links {
         display: none;
-        /* JS toggle needs to handle this, strict base hidden */
         position: absolute;
-        top: 100%;
+        top: 70px;
+        /* Below navbar */
         left: 0;
         width: 100%;
-        background: var(--color-cream);
+        background: var(--color-sandstone-light);
         flex-direction: column;
         padding: 2rem;
         gap: 1.5rem;
         text-align: center;
-        border-bottom: 2px solid var(--color-gold);
+        border-bottom: 2px solid var(--color-antique-gold);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.active {
         display: flex;
     }
 
+    .nav-links li a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px;
+    }
+
     .hamburger {
         display: flex;
+        color: var(--color-desert-brown);
     }
 
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
+    /* Hero Mobile */
     .hero {
         min-height: 70vh;
+        background-position: center;
+        padding-top: 60px;
+        /* Offset for navbar */
     }
-}
 
-/* Animation Classes - Gentle */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(15px);
-    animation: fadeInUp 0.8s forwards;
-}
+    .hero-title,
+    .hero-subtitle {
+        display: none;
+    }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .hero-mobile-text {
+        display: block !important;
+        margin-bottom: 2rem;
+    }
+
+    .hero-mobile-text h2 {
+        font-size: 2.2rem;
+        color: var(--color-sandstone-light);
+        line-height: 1.2;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-mobile-text p {
+        font-size: 1rem;
+        color: var(--color-sandstone);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        gap: 15px;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+    }
+
+    /* Mobile Bottom Bar Visibility & Safe Area */
+    /* Mobile Bottom Bar - Integrated into Footer/Flow, NOT Fixed */
+    .mobile-bottom-bar {
+        display: none;
+        /* Disable fixed bar as per user request */
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+    .fab-menu {
+        bottom: 20px;
+        right: 20px;
     }
 }

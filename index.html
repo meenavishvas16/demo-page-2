@@ -20,11 +20,9 @@
             <img src="images/logo.png" alt="Maharaja’s Table Logo" height="50">Maharaja’s Table
         </a>
         <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#menu">Menu</a></li>
+            <li><a href="index.html#home" class="active">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#location">Location</a></li>
             <li><a href="#contact" class="btn-book">Book Table</a></li>
             <!-- Theme toggle removed for simpler classic feel, or kept if requested. Keeping hidden for now or minimal -->
@@ -38,16 +36,20 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="home" class="hero"
-        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/hero.png'); background-size: cover; background-position: center;">
+    <!-- Hero Section -->
+    <header id="home" class="hero">
         <div class="container">
-            <h1>A Royal Rajasthani Dining Experience</h1>
-            <p>Authentic flavours, traditional ambience, and unforgettable hospitality.</p>
-            <div class="flex gap-sm justify-center" style="gap: 15px; flex-wrap: wrap;">
-                <a href="#menu" class="btn">View Menu</a>
-                <a href="https://wa.me/1234567890" target="_blank" class="btn btn-whatsapp"><i
-                        class="fab fa-whatsapp"></i> Book Table
-                    on WhatsApp</a>
+            <h1 class="hero-title">Royal Rajasthani Dining Experience</h1>
+            <p class="hero-subtitle">Authentic flavours, traditional hospitality, and a heritage ambience for families
+                and celebrations.</p>
+            <div class="hero-mobile-text" style="display: none;">
+                <h2>Royal Rajasthani Dining</h2>
+                <p>Authentic flavours & heritage hospitality</p>
+            </div>
+            <div class="flex gap-sm justify-center hero-btns">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="https://wa.me/1234567890" target="_blank" class="btn btn-secondary"><i
+                        class="fab fa-whatsapp"></i> Book Table on WhatsApp</a>
             </div>
         </div>
     </header>
@@ -57,9 +59,9 @@
         <div class="container text-center">
             <h2 class="section-title">Royal Heritage</h2>
             <p class="section-subtitle" style="max-width: 700px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
-                Inspired by the royal kitchens of Rajasthan, <strong>Maharaja’s Table</strong> brings traditional
-                recipes,
-                slow-cooked flavours, and a heritage dining experience to the heart of the city.
+                Inspired by the royal kitchens of Rajasthan,
+                we bring time-honoured recipes and warm hospitality
+                to create a truly traditional dining experience.
             </p>
         </div>
     </section>
@@ -259,10 +261,18 @@
             <h2>Maharaja’s Table</h2>
             <p>123 Palace Road, Pink City, Rajasthan</p>
             <p>+91 98765 43210</p>
+            <div class="footer-actions flex justify-center gap-md" style="margin: 30px 0; flex-wrap: wrap;">
+                <a href="tel:+919876543210" class="btn btn-outline"
+                    style="border-color: var(--color-antique-gold); color: var(--color-sandstone-light);"><i
+                        class="fas fa-phone-alt fa-flip-horizontal"></i> Call</a>
+                <a href="#location" class="btn btn-outline"
+                    style="border-color: var(--color-antique-gold); color: var(--color-sandstone-light);"><i
+                        class="fas fa-map-marker-alt"></i> Directions</a>
+            </div>
+
             <div class="flex justify-center gap-sm" style="margin: 20px 0;">
                 <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
                 <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
-                <a href="#"><i class="fab fa-whatsapp fa-lg"></i></a>
             </div>
             <p style="font-size: 0.8rem; opacity: 0.8;">&copy; 2026 Maharaja’s Table. All rights reserved.</p>
             <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 10px;">Designed by Vishv Studio</p>

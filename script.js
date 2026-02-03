@@ -21,31 +21,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Menu Category Tabs (for menu.html)
-    const catBtns = document.querySelectorAll('.cat-btn');
+    // Menu Filter Dropdown Logic (New Pro Feature)
+    const filterBtn = document.getElementById('filter-dropdown-btn');
+    const filterOptions = document.getElementById('filter-dropdown-options');
+    const selectedText = document.getElementById('selected-category-text');
     const menuItems = document.querySelectorAll('.menu-item');
+    const optionItems = document.querySelectorAll('.filter-option');
 
-    if (catBtns.length > 0) {
-        catBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                catBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
+    if (filterBtn && filterOptions) {
+        // Toggle Dropdown
+        filterBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent document click from closing immediately
+            filterOptions.classList.toggle('show');
+            // Rotate icon if needed (optional polish)
+        });
 
-                const category = btn.getAttribute('data-category');
+        // Handle Option Click
+        optionItems.forEach(option => {
+            option.addEventListener('click', () => {
+                const category = option.getAttribute('data-category');
+                const label = option.textContent;
 
-                // Filter items
+                // Update UI
+                selectedText.textContent = label;
+                filterOptions.classList.remove('show');
+
+                // Filter Items
                 menuItems.forEach(item => {
-                    if (category === 'all' || item.getAttribute('data-category') === category) {
-                        item.style.display = 'flex';
-                        // Add fade in animation
-                        item.style.opacity = '0';
-                        setTimeout(() => item.style.opacity = '1', 50);
+                    const itemCategory = item.getAttribute('data-category');
+                    if (category === 'all' || itemCategory === category) {
+                        item.style.display = 'block';
+                        // Ensure visibility immediately
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
                     } else {
                         item.style.display = 'none';
                     }
                 });
             });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!filterBtn.contains(e.target) && !filterOptions.contains(e.target)) {
+                filterOptions.classList.remove('show');
+            }
         });
     }
 
@@ -66,31 +86,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Intersection Observer for Scroll Animations
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px" // Trigger slightly before element is fully in view
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in-up');
+                // Remove inline styles that might block visibility
+                entry.target.style.opacity = '';
+                entry.target.style.transform = '';
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
+    // Initial setup for animations
     document.querySelectorAll('.menu-item, .gallery-item, .review-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
-    });
-
-    // Add class for animation when in view
-    document.addEventListener('scroll', () => {
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        });
     });
     // Inline Map Toggle
     const mapCover = document.getElementById('map-cover');

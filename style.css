@@ -243,7 +243,8 @@ img {
 .nav-links a {
     font-family: var(--font-heading);
     font-weight: 600;
-    color: var(--color-sandstone);
+    color: #FFFFFF;
+    /* Max contrast for nav links */
     /* Light text on brown navbar */
     font-size: 1.05rem;
 }
@@ -328,7 +329,8 @@ img {
 /* Button Variants */
 .btn-primary {
     background-color: var(--color-desert-brown);
-    color: #F9F3EA;
+    color: #FFFFFF;
+    /* High contrast white */
 }
 
 .btn-primary:hover {

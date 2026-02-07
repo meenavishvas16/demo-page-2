@@ -323,3 +323,34 @@
     display: block;
     opacity: 1;
 }
+/* Animation for item landing */
+.cart-pulse {
+    animation: cartPulse 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes cartPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Flying item animation */
+.flying-item {
+    position: fixed;
+    z-index: 9999;
+    border-radius: 50%;
+    object-fit: cover;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Transition is handled by JS for dynamic coordinates, 
+       but we can set a default here */
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}

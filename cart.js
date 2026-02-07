@@ -87,7 +87,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         saveCart();
-        openCart(); // Auto open cart to show confirmation
+        // openCart(); // Removed auto-open
+
+        // Trigger Animation
+        const img = menuItem.querySelector('.item-image');
+        if (img && cartTrigger) {
+            flyToCart(img, cartTrigger);
+        }
+    }
+
+    // New Animation Function
+    function flyToCart(sourceImg, targetIcon) {
+        const sourceRect = sourceImg.getBoundingClientRect();
+        const targetRect = targetIcon.getBoundingClientRect();
+
+        const clone = sourceImg.cloneNode();
+        clone.style.position = 'fixed';
+        clone.style.left = `${sourceRect.left}px`;
+        clone.style.top = `${sourceRect.top}px`;
+        clone.style.width = `${sourceRect.width}px`;
+        clone.style.height = `${sourceRect.height}px`;
+        clone.style.opacity = '0.8';
+        clone.style.zIndex = '9999';
+        clone.style.pointerEvents = 'none';
+        clone.style.transition = 'all 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
+        clone.style.borderRadius = '50%'; // Make it round while flying
+
+        document.body.appendChild(clone);
+
+        // Trigger animation in next frame
+        requestAnimationFrame(() => {
+            clone.style.left = `${targetRect.left}px`;
+            clone.style.top = `${targetRect.top}px`;
+            clone.style.width = '20px'; // Shrink
+            clone.style.height = '20px';
+            clone.style.opacity = '0';
+        });
+
+        // Cleanup
+        setTimeout(() => {
+            clone.remove();
+            // Pulse the cart icon
+            targetIcon.classList.add('cart-pulse');
+            setTimeout(() => targetIcon.classList.remove('cart-pulse'), 300);
+        }, 800);
     }
 
     function removeItem(id) {

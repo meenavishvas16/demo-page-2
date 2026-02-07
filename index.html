@@ -9,6 +9,7 @@
         content="Experience the royal flavours of Rajasthan at Maharaja’s Table. Authentic heritage dining in the heart of the city.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="cart.css">
     <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 
@@ -287,7 +288,69 @@
         </div>
     </footer>
 
+    <!-- Cart UI Elements -->
+    <div class="cart-trigger" id="cart-trigger">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Order</h2>
+            <button class="btn-close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be injected here -->
+            <div style="text-align: center; margin-top: 50px; color: #888;">
+                <i class="fas fa-shopping-basket" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                <p>Your cart is empty.</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">₹0</span>
+            </div>
+            <button class="btn-checkout" id="btn-checkout">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- COD Checkout Modal -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <div class="flex justify-between" style="justify-content: space-between; align-items: center;">
+                <h3>Cash on Delivery</h3>
+                <button class="btn-close-cart" id="close-checkout" style="font-size: 1.2rem;"><i
+                        class="fas fa-times"></i></button>
+            </div>
+
+            <form class="checkout-form" id="checkout-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="order-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="order-phone" required placeholder="Enter 10-digit number" pattern="[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="order-address" rows="3" required
+                        placeholder="Complete address including pincode"></textarea>
+                </div>
+                <div class="cart-total" style="margin-top: 15px; font-size: 1rem;">
+                    <span>Payable Amount:</span>
+                    <span id="checkout-total">₹0</span>
+                </div>
+                <button type="submit" class="btn-place-order">Place Order via COD</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="cart.js"></script>
 </body>
 
 </html>

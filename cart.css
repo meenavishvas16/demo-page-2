@@ -1,0 +1,325 @@
+
+/* Cart System Styles */
+
+/* 1. Animated Add to Cart Button */
+.btn-add-cart {
+    background-color: var(--color-antique-gold);
+    color: var(--color-charcoal-brown);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--color-desert-brown);
+    color: var(--color-sandstone-light);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-add-cart .cart-icon {
+    font-size: 1.2rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The Cool Animation: Cart 'rolls' and slight bounce */
+.btn-add-cart:hover .cart-icon {
+    animation: cartRoll 1s ease-in-out infinite;
+}
+
+@keyframes cartRoll {
+    0% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(3px) rotate(5deg); }
+    50% { transform: translateX(0) rotate(0deg); }
+    75% { transform: translateX(-3px) rotate(-5deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+}
+
+/* 2. Cart Floating Trigger (Visible on all screens) */
+.cart-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-desert-brown);
+    color: var(--color-sandstone-light);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.cart-trigger:hover {
+    transform: scale(1.1) rotate(-10deg);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--color-rajput-pink);
+    color: var(--color-charcoal-brown);
+    font-size: 0.8rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    border: 2px solid #fff;
+}
+
+/* 3. Cart Sidebar/Modal */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Hidden by default */
+    width: 350px;
+    height: 100vh;
+    background-color: var(--color-sandstone-light);
+    box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+    z-index: 1002;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-antique-gold);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.cart-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.btn-close-cart {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-desert-brown);
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    border-radius: var(--radius-soft);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.cart-item-info h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--color-charcoal-brown);
+}
+
+.cart-item-info p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-soft-grey-brown);
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-remove-item {
+    background: #ffcccb;
+    border: none;
+    color: #d32f2f;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.btn-remove-item:hover {
+    background: #f44336;
+    color: white;
+}
+
+.cart-footer {
+    border-top: 2px solid var(--color-antique-gold);
+    padding-top: 15px;
+    margin-top: auto;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn-checkout {
+    width: 100%;
+    background-color: var(--color-desert-brown);
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: var(--radius-soft);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: var(--color-antique-gold);
+    color: var(--color-charcoal-brown);
+}
+
+/* 4. Checkout Modal (COD) */
+.checkout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s;
+}
+
+.checkout-content {
+    background: var(--color-sandstone-light);
+    padding: 30px;
+    border-radius: var(--radius-soft);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--color-charcoal-brown);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-antique-gold);
+    border-radius: 4px;
+    background: #fff;
+    font-family: var(--font-body);
+}
+
+.btn-place-order {
+    background-color: var(--color-rajput-pink);
+    color: var(--color-charcoal-brown);
+    border: none;
+    padding: 15px;
+    border-radius: var(--radius-soft);
+    font-weight: 700;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-place-order:hover {
+    background-color: var(--color-desert-brown);
+    color: #fff;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .cart-trigger {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Overlay for sidebar */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1001;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.cart-overlay.active {
+    display: block;
+    opacity: 1;
+}
